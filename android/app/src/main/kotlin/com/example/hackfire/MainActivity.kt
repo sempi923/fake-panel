@@ -1,4 +1,4 @@
-package com.example.fakepanel
+package com.example.hackfire
 
 import io.flutter.embedding.android.FlutterActivity
 
