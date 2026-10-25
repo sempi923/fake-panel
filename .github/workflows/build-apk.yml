@@ -29,15 +29,11 @@ jobs:
           channel: 'stable'
           cache: true
 
+      - name: Dar permisos de ejecución a gradlew
+        run: chmod +x android/gradlew
+
       - name: Descargar dependencias Flutter
         run: flutter pub get
-
-      - name: Generar Gradle Wrapper
-        run: |
-          cd android
-          gradle wrapper --gradle-version 8.4 --distribution-type bin
-          chmod +x gradlew
-          cd ..
 
       - name: Compilar APK en modo Release
         run: flutter build apk --release
