@@ -29,15 +29,15 @@ jobs:
           channel: 'stable'
           cache: true
 
+      - name: Descargar dependencias Flutter
+        run: flutter pub get
+
       - name: Generar Gradle Wrapper
         run: |
           cd android
           gradle wrapper --gradle-version 8.4 --distribution-type bin
           chmod +x gradlew
           cd ..
-
-      - name: Descargar dependencias Flutter
-        run: flutter pub get
 
       - name: Compilar APK en modo Release
         run: flutter build apk --release
