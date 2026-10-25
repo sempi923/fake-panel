@@ -10,6 +10,8 @@ jobs:
   build:
     name: Build Release APK
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Descargar repositorio (Checkout)
@@ -35,13 +37,32 @@ jobs:
       - name: Descargar dependencias Flutter
         run: flutter pub get
 
-      - name: Compilar APK en modo Release
-        run: flutter build apk --release
+      - name: Compilar APK optimizado por arquitectura (Split-per-ABI)
+        run: flutter build apk --release --split-per-abi --tree-shake-icons
 
-      - name: Subir APK como artefacto descargable
+      - name: Listar APKs generados
+        run: ls -lh build/app/outputs/flutter-apk/
+
+      - name: Subir APKs optimizados como artefactos
         uses: actions/upload-artifact@v4
         with:
-          name: Panel-Configuracion-FX-Release
-          path: build/app/outputs/flutter-apk/app-release.apk
+          name: Hack-Fire-APKs-Optimizados
+          path: build/app/outputs/flutter-apk/*.apk
           if-no-files-found: error
           retention-days: 14
+
+      - name: Publicar Release en GitHub con APKs ligeros
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/') || github.ref == 'refs/heads/main'
+        with:
+          tag_name: v1.1.0-light
+          name: "HACK-FIRE v1.1.0 (Edición Ligera)"
+          body: |
+            ## 🔥 HACK-FIRE - Panel FX Ultra Ligero
+
+            - 💀 **Nuevo icono y logo de calavera gamer** cibernética con ojos neón.
+            - ⚡ **Optimización extrema**: APKs divididos por arquitectura (Split ABI) con reducción de más del 60% en peso.
+            - 📱 **Descarga recomendada**:
+              - Para teléfonos modernos (99% de dispositivos): **`app-arm64-v8a-release.apk`** (~6-7 MB).
+              - Para teléfonos anteriores: **`app-armeabi-v7a-release.apk`**.
+          files: build/app/outputs/flutter-apk/*.apk

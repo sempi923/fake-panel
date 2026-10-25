@@ -1,7 +1,7 @@
-name: fake_panel
-description: "Panel de Configuración FX - Simulación visual para juegos"
+name: hack_fire
+description: "HACK-FIRE - Panel FX Simulación visual optimizada"
 publish_to: 'none'
-version: 1.0.0+1
+version: 1.1.0+2
 
 environment:
   sdk: '>=3.0.0 <4.0.0'

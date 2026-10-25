@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    
+    <!-- Cráneo principal -->
+    <path
+        android:fillColor="#00E5FF"
+        android:pathData="M54,22 C37,22 26,35 26,50 C26,60 31,68 37,72 L37,82 C37,85 41,86 44,86 L64,86 C67,86 71,85 71,82 L71,72 C77,68 82,60 82,50 C82,35 71,22 54,22 Z" />
+    
+    <!-- Cuencas de los ojos (oscuras con detalles rojos) -->
+    <path
+        android:fillColor="#0A0D14"
+        android:pathData="M43,46 C40,46 37,50 37,56 C37,62 41,65 44,64 C47,63 48,58 48,52 C48,47 46,46 43,46 Z" />
+    <path
+        android:fillColor="#0A0D14"
+        android:pathData="M65,46 C68,46 71,50 71,56 C71,62 67,65 64,64 C61,63 60,58 60,52 C60,47 62,46 65,46 Z" />
+
+    <!-- Pupilas rojas neón estilo gamer -->
+    <path
+        android:fillColor="#FF0055"
+        android:pathData="M43,53 A3,3 0 1,1 43,53.01" />
+    <path
+        android:fillColor="#FF0055"
+        android:pathData="M65,53 A3,3 0 1,1 65,53.01" />
+
+    <!-- Cavidad nasal triangular invertida -->
+    <path
+        android:fillColor="#0A0D14"
+        android:pathData="M54,61 L50,69 L58,69 Z" />
+
+    <!-- Dientes / Mandíbula -->
+    <path
+        android:strokeColor="#0A0D14"
+        android:strokeWidth="2.5"
+        android:pathData="M44,75 L44,85 M50,75 L50,85 M57,75 L57,85 M64,75 L64,85" />
+</vector>
